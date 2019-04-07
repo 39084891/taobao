@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class PageController {
-    @RequestMapping("/")
-    public String showIndex(){
-        return "index";
-    }
+//    @RequestMapping("/")
+//    public String showIndex(){
+//        return "index";
+//    }
 
 //    显示商品查询页面
 //    url:item-list

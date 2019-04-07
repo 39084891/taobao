@@ -125,7 +125,7 @@ var TT = TAOTAO = {
     			    				
     			    				$(_win).window('close');
     			    				if(data && data.fun){
-    			    					alert(data);
+    			    					// alert("选择成功");
     			    					data.fun.call(this,node);
     			    				}
     			    			}

@@ -21,4 +21,5 @@
     <!--<bean id="testServiceImpl" class="cn.qinguu.service.impl.TestServiceImpl" />-->
     <dubbo:service interface="cn.qinguu.service.TestService" ref="testServiceImpl" />
     <dubbo:service interface="cn.qinguu.service.ItemService" ref="itemServiceImpl" />
+    <dubbo:service interface="cn.qinguu.service.ItemCatService" ref="itemCatServiceImpl" />
 </beans>

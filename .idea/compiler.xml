@@ -13,6 +13,7 @@
         <module name="taobao-manager-pojo" />
         <module name="taobao-manager-service" />
         <module name="taobao-manager-web" />
+        <module name="taobao-portal" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

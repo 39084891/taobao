@@ -175,7 +175,7 @@ public class TbItemCatExample {
             return (Criteria) this;
         }
 
-        public Criteria andParentIdEqualTo(Long value) {
+        public Criteria andParentIdEqualTo(Integer value) {
             addCriterion("parent_id =", value, "parentId");
             return (Criteria) this;
         }
