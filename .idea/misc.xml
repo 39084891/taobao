@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/taobao-content/taobao-content-service" />
     <file type="web" url="file://$PROJECT_DIR$/taobao-manager-web" />
     <file type="web" url="file://$PROJECT_DIR$/taobao-manager/taobao-manager-service" />
     <file type="web" url="file://$PROJECT_DIR$/taobao-portal" />
@@ -20,6 +21,8 @@
         <option value="$PROJECT_DIR$/taobao-manager-web/pom.xml" />
         <option value="$PROJECT_DIR$/generatorSqlMapCustom/pom.xml" />
         <option value="$PROJECT_DIR$/taobaoportal/pom.xml" />
+        <option value="$PROJECT_DIR$/taobao-content/pom.xml" />
+        <option value="$PROJECT_DIR$/taobao-portal/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

@@ -1,8 +1,9 @@
 package cn.qinguu.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class TbContentCategory {
+public class TbContentCategory implements Serializable {
     private Long id;
 
     private Long parentId;
@@ -81,5 +82,12 @@ public class TbContentCategory {
 
     public void setUpdated(Date updated) {
         this.updated = updated;
+    }
+
+    public String getText() {
+        return getName();
+    }
+    public String getState() {
+        return isParent ? "closed" : "open";
     }
 }

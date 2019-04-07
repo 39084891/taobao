@@ -21,6 +21,7 @@
     <dubbo:reference interface="cn.qinguu.service.TestService" id="testService"/>
     <dubbo:reference interface="cn.qinguu.service.ItemService" id="itemService"/>
     <dubbo:reference interface="cn.qinguu.service.ItemCatService" id="itemCatService"/>
+    <dubbo:reference interface="cn.qinguu.content.service.ContentCatService" id="contentCatService"/>
     <!--给静态资源放行-->
     <mvc:resources location="/WEB-INF/js/" mapping="/js/**"/>
     <mvc:resources location="/WEB-INF/css/" mapping="/css/**"/>

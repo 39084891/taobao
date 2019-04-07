@@ -27,6 +27,4 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
-    <!--url拦截形式-->
-    <!--加载spring.mvc-->
 </web-app>

@@ -26,6 +26,10 @@ public class TaoBaoResult implements Serializable {
         return new TaoBaoResult(null);
     }
 
+    public static TaoBaoResult forbidden() {
+        return new TaoBaoResult(403,"forbidden",null);
+    }
+
     public TaoBaoResult() {
 
     }

@@ -2,6 +2,9 @@
 <project version="4">
   <component name="Encoding" addBOMForNewFiles="with NO BOM">
     <file url="file://$PROJECT_DIR$/taobao-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/taobao-content" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/taobao-content/taobao-content-interface" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/taobao-content/taobao-content-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/taobao-manager" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/taobao-manager-web" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/taobao-manager/taobao-manager-dao" charset="UTF-8" />

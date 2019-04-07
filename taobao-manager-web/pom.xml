@@ -14,6 +14,13 @@
 
 
     <dependencies>
+        <!--导入content接口-->
+        <dependency>
+            <groupId>cn.qinguu</groupId>
+            <artifactId>taobao-content-interface</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <!--导入manager接口-->
         <dependency>
             <groupId>cn.qinguu</groupId>
             <artifactId>taobao-manager-interface</artifactId>

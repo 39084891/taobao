@@ -8,6 +8,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="generatorSqlMapCustom" />
         <module name="taobao-common" />
+        <module name="taobao-content-interface" />
+        <module name="taobao-content-service" />
         <module name="taobao-manager-dao" />
         <module name="taobao-manager-interface" />
         <module name="taobao-manager-pojo" />
