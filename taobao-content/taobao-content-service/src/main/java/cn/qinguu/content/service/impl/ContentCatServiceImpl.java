@@ -73,6 +73,7 @@ public class ContentCatServiceImpl implements ContentCatService {
         if(tbContentCategory.getIsParent()==true){
             return TaoBaoResult.forbidden();
         }
+        //删除节点
         tbContentCategoryMapper.deleteByPrimaryKey(id);
         //获取需要分类的父节点id
         Long parentId = tbContentCategory.getParentId();
@@ -110,6 +111,9 @@ public class ContentCatServiceImpl implements ContentCatService {
 
         return TaoBaoResult.ok();
     }
+
+
+
 
 
 }

@@ -66,7 +66,7 @@ function menuHandler(item){
 				        tree.tree("remove",node.target);
 				    }
 				    if (data.status===403){
-				        alert('禁止删除父节点！');
+                        $.messager.alert('禁止删除父节点！');
                     }
 
 				});	

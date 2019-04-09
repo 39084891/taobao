@@ -20,5 +20,6 @@
     <!-- 声明需要暴露的服务接口 -->
     <!--<bean id="testServiceImpl" class="cn.qinguu.service.impl.TestServiceImpl" />-->
     <dubbo:service interface="cn.qinguu.content.service.ContentCatService" ref="contentCatServiceImpl" />
+    <dubbo:service interface="cn.qinguu.content.service.ContentService" ref="contentServiceImpl" />
 
 </beans>

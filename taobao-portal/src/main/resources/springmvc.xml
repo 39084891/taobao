@@ -20,7 +20,7 @@
     <!-- 引用dubbo服务 -->
     <dubbo:application name="taobao-potal-web"/>
     <dubbo:registry protocol="zookeeper" address="192.168.25.128:2181"/>
-    <!--<dubbo:reference interface="cn.qinguu.service.TestService" id="testService"/>-->
+    <dubbo:reference interface="cn.qinguu.content.service.ContentService" id="contentService"/>
 
 
 
