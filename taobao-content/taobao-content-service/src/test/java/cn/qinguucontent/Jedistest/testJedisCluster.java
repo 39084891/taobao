@@ -27,8 +27,8 @@ public class testJedisCluster {
         nodes.add(new HostAndPort("192.168.25.130", 7006));
         JedisCluster jedisCluster = new JedisCluster(nodes);
         // 第二步：直接使用JedisCluster对象操作redis。在系统中单例存在。
-        jedisCluster.set("hello", "100");
-        String result = jedisCluster.get("hello");
+        //jedisCluster.set("hello", "100");
+        String result = jedisCluster.hget("TBCONTENT_KEY","89");
         // 第三步：打印结果
         System.out.println(result);
         // 第四步：系统关闭前，关闭JedisCluster对象。

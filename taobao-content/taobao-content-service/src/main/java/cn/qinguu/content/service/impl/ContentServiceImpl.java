@@ -2,15 +2,19 @@ package cn.qinguu.content.service.impl;
 
 import cn.qinguu.common.pojo.EasyUIDataGridResult;
 import cn.qinguu.common.pojo.TaoBaoResult;
+import cn.qinguu.common.utils.JsonUtils;
 import cn.qinguu.content.jedis.JedisClientCluster;
 import cn.qinguu.content.service.ContentService;
 import cn.qinguu.mapper.TbContentMapper;
 import cn.qinguu.pojo.TbContent;
 import cn.qinguu.pojo.TbContentExample;
 import cn.qinguu.pojo.TbItem;
+import com.alibaba.druid.support.json.JSONUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.github.pagehelper.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -31,6 +35,9 @@ public class ContentServiceImpl implements ContentService {
     //redis集群客户端
     @Autowired
     JedisClientCluster jedisClientCluster;
+
+    @Value("${CONTENT_KEY}")
+    private String CONTENT_KEY;
     /*
      * @Author cy
      * @Description 根据cid分页获取内容list
@@ -66,7 +73,8 @@ public class ContentServiceImpl implements ContentService {
         tbContent.setCreated(date);
         tbContent.setUpdated(date);
         tbContentMapper.insert(tbContent);
-
+        //删除缓存
+        jedisClientCluster.hdel(CONTENT_KEY,tbContent.getCategoryId()+"");
         return TaoBaoResult.ok();
     }
 
@@ -82,6 +90,8 @@ public class ContentServiceImpl implements ContentService {
         Date date = new Date();
         tbContent.setUpdated(date);
         tbContentMapper.updateByPrimaryKeySelective(tbContent);
+        //删除缓存
+        jedisClientCluster.hdel(CONTENT_KEY,tbContent.getCategoryId()+"");
         return TaoBaoResult.ok();
     }
 
@@ -94,10 +104,13 @@ public class ContentServiceImpl implements ContentService {
      **/
     @Override
     public TaoBaoResult deleteContent(Long[] ids) {
+        TbContent tbContent = tbContentMapper.selectByPrimaryKey(ids[0]);
         for (Long id :
                 ids) {
             tbContentMapper.deleteByPrimaryKey(id);
         }
+        //删除缓存
+        jedisClientCluster.hdel(CONTENT_KEY,tbContent.getCategoryId()+"");
         return TaoBaoResult.ok();
     }
 
@@ -110,11 +123,21 @@ public class ContentServiceImpl implements ContentService {
      **/
     @Override
     public List<TbContent> getAd1Content(Long cid) {
-
+        String json = jedisClientCluster.hget(CONTENT_KEY,cid+"");
+        //判断json是否为空
+        if (StringUtil.isNotEmpty(json)){
+            List<TbContent> list = JsonUtils.jsonToList(json,TbContent.class);
+            return  list;
+        }
         TbContentExample example = new TbContentExample();
         TbContentExample.Criteria criteria = example.createCriteria();
         criteria.andCategoryIdEqualTo(cid);
-        return tbContentMapper.selectByExample(example);
+        List<TbContent> tbContents = tbContentMapper.selectByExample(example);
+        //将pojo转换为json字符串
+        json = JsonUtils.objectToJson(tbContents);
+        //将json字符串发送到redis缓存中
+        jedisClientCluster.hset(CONTENT_KEY,cid+"",json);
+        return tbContents;
     }
 
 }
