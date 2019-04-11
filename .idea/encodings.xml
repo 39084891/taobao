@@ -13,5 +13,9 @@
     <file url="file://$PROJECT_DIR$/taobao-manager/taobao-manager-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/taobao-parent" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/taobao-portal" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/taobao-search" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/taobao-search-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/taobao-search/taobao-search-interface" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/taobao-search/taobao-search-service" charset="UTF-8" />
   </component>
 </project>

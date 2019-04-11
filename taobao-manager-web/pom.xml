@@ -14,6 +14,12 @@
 
 
     <dependencies>
+        <!--导入search接口-->
+        <dependency>
+            <groupId>cn.qinguu</groupId>
+            <artifactId>taobao-search-interface</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
         <!--导入content接口-->
         <dependency>
             <groupId>cn.qinguu</groupId>
@@ -99,6 +105,7 @@
             <groupId>com.github.sgroschupf</groupId>
             <artifactId>zkclient</artifactId>
         </dependency>
+        <!--单元测试-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

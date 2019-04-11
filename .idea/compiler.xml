@@ -16,6 +16,9 @@
         <module name="taobao-manager-service" />
         <module name="taobao-manager-web" />
         <module name="taobao-portal" />
+        <module name="taobao-search-interface" />
+        <module name="taobao-search-service" />
+        <module name="taobao-search-web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
