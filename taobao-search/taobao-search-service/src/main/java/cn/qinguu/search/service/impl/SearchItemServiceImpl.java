@@ -6,8 +6,8 @@ import cn.qinguu.common.pojo.TaoBaoResult;
 import cn.qinguu.search.dao.SearchDao;
 import cn.qinguu.search.mapper.SearchItemMapper;
 import cn.qinguu.search.service.SearchItemService;
+import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrQuery;
-import org.apache.solr.client.solrj.SolrServer;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.response.UpdateResponse;
 import org.apache.solr.common.SolrDocument;
@@ -30,7 +30,7 @@ public class SearchItemServiceImpl implements SearchItemService {
     @Autowired
     SearchItemMapper searchItemMapper;
     @Autowired
-    private SolrServer solrServer;
+    private SolrClient solrClient;
     @Autowired
     private SearchDao searchDao;
     @Override
@@ -48,10 +48,10 @@ public class SearchItemServiceImpl implements SearchItemService {
             document.addField("item_price",searchItem.getPrice());
             document.addField("item_sell_point",searchItem.getSell_point());
             document.addField("item_title",searchItem.getTitle());
-            solrServer.add(document);
+            solrClient.add(document);
             System.out.println(i++);
         }
-        solrServer.commit();
+        solrClient.commit();
         return TaoBaoResult.ok();
     }
 

@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
 
 /**
- * 淘淘商城自定义响应结构
+ * 京西商城自定义响应结构
  */
 public class JsonUtil {
 

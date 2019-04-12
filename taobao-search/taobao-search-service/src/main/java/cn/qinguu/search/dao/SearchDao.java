@@ -2,8 +2,8 @@ package cn.qinguu.search.dao;
 
 import cn.qinguu.common.pojo.SearchItem;
 import cn.qinguu.common.pojo.SearchResult;
+import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrQuery;
-import org.apache.solr.client.solrj.SolrServer;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
@@ -25,9 +25,9 @@ import java.util.Map;
 @Repository
 public class SearchDao {
     @Autowired
-    private SolrServer solrServer;
-    public SearchResult search(SolrQuery query) throws SolrServerException {
-        QueryResponse response = solrServer.query(query);
+    private SolrClient solrClient;
+    public SearchResult search(SolrQuery query) throws Exception {
+        QueryResponse response = solrClient.query(query);
         SolrDocumentList results = response.getResults();
         List<SearchItem> itemList = new ArrayList<>();
         //设置高亮

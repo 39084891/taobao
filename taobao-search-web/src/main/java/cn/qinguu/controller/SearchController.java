@@ -23,6 +23,7 @@ public class SearchController {
     @Value("${ITEM_ROWS}")
     private Integer ITEM_ROWS;
 
+
     @RequestMapping("/search")
     public String search(@RequestParam("q")String queryString,
                          @RequestParam(defaultValue="1")Integer page, Model model) throws Exception {
@@ -30,6 +31,7 @@ public class SearchController {
         queryString = new String(queryString.getBytes("iso-8859-1"),"utf-8");
 
         SearchResult result = searchService.search(queryString, page, ITEM_ROWS);
+
         //传递给页面
         model.addAttribute("query", queryString);
         model.addAttribute("totalPages", result.getPageCount());

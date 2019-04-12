@@ -15,6 +15,7 @@
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+    <bean class="cn.qinguu.exception.GlobalExceptionReslover"></bean>
     <!-- 引用dubbo服务 -->
     <dubbo:application name="taobao-manager-web"/>
     <dubbo:registry protocol="zookeeper" address="192.168.25.128:2181"/>
